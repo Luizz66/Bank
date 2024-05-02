@@ -8,14 +8,14 @@ public class Main {
         float valor_retirar = 0;
         int op = 0;
 
-        Cliente carlos = new Cliente();
-        Conta conta_carlos = new Conta();
+        Cliente cliente1 = new Cliente();
+        Conta conta_cliente1 = new Conta();
 
         int result = JOptionPane.showConfirmDialog(null, "\nClique em OK para criar uma conta.     \n\n\n",
                 "Bem vindo ao Bank",
                 JOptionPane.OK_CANCEL_OPTION);
         if (result == JOptionPane.OK_OPTION) {
-            carlos.CadastrarCliente(JOptionPane.showInputDialog("Informe o seu nome: "),
+            cliente1.CadastrarCliente(JOptionPane.showInputDialog("Informe o seu nome: "),
                     Integer.parseInt(JOptionPane.showInputDialog("Informe o seu CPF: ")),
                     Integer.parseInt(JOptionPane.showInputDialog("Informe o seu CEP: ")),
                     Integer.parseInt(JOptionPane.showInputDialog("Informe a sua idade: ")),
@@ -42,30 +42,31 @@ public class Main {
 
             switch (op) {
                 case 1:
-                    carlos.DadosCliente();
+                    cliente1.DadosCliente();
                     break;
                 case 2:
                     valor_depositar = Float
                             .parseFloat(JOptionPane.showInputDialog("Informe o valor do Deposito: "));
-                    conta_carlos.Depositar(valor_depositar);
+                    conta_cliente1.Depositar(valor_depositar);
                     break;
                 case 3:
-                    valor_retirar = Float.parseFloat(JOptionPane.showInputDialog("Saldo na Conta: " + conta_carlos.saldo
-                            + "\n\nInforme o valor do Saque: "));
-                    conta_carlos.Sacar(valor_retirar);
+                    valor_retirar = Float
+                            .parseFloat(JOptionPane.showInputDialog("Saldo na Conta: " + conta_cliente1.saldo
+                                    + "\n\nInforme o valor do Saque: "));
+                    conta_cliente1.Sacar(valor_retirar);
                     break;
                 case 4:
                     n = Integer.parseInt(JOptionPane.showInputDialog("1 - Investir\n2 - Resgatar Investimento"));
                     if (n == 1) {
                         valor_investimento = Float
-                                .parseFloat(JOptionPane.showInputDialog("Saldo na Conta: " + conta_carlos.saldo
+                                .parseFloat(JOptionPane.showInputDialog("Saldo na Conta: " + conta_cliente1.saldo
                                         + "\n\nInforme o valor que deseja Investir: "));
-                        conta_carlos.Investir(valor_investimento);
+                        conta_cliente1.Investir(valor_investimento);
                     } else if (n == 2) {
                         valor_investimento = Float
-                                .parseFloat(JOptionPane.showInputDialog("Investimento: " + conta_carlos.investimento
+                                .parseFloat(JOptionPane.showInputDialog("Investimento: " + conta_cliente1.investimento
                                         + "\n\nInforme o valor que deseja Resgatar: "));
-                        conta_carlos.ResgatarInvestimento(valor_investimento);
+                        conta_cliente1.ResgatarInvestimento(valor_investimento);
                     } else
                         JOptionPane.showMessageDialog(null, "Opção inválida");
                     break;
@@ -73,19 +74,19 @@ public class Main {
                     n = Integer.parseInt(JOptionPane.showInputDialog("1 - Poupar\n2 - Resgatar Poupança"));
                     if (n == 1) {
                         valor_poupança = Float
-                                .parseFloat(JOptionPane.showInputDialog("Saldo na Conta: " + conta_carlos.saldo
+                                .parseFloat(JOptionPane.showInputDialog("Saldo na Conta: " + conta_cliente1.saldo
                                         + "\n\nInforme o valor que deseja Poupar: "));
-                        conta_carlos.Poupar(valor_poupança);
+                        conta_cliente1.Poupar(valor_poupança);
                     } else if (n == 2) {
                         valor_poupança = Float
-                                .parseFloat(JOptionPane.showInputDialog("Poupança: " + conta_carlos.poupança
+                                .parseFloat(JOptionPane.showInputDialog("Poupança: " + conta_cliente1.poupança
                                         + "\n\nInforme o valor que deseja Resgatar: "));
-                        conta_carlos.ResgatarPoupança(valor_poupança);
+                        conta_cliente1.ResgatarPoupança(valor_poupança);
                     } else
                         JOptionPane.showMessageDialog(null, "Opção inválida");
                     break;
                 case 6:
-                    conta_carlos.VerConta();
+                    conta_cliente1.VerConta();
                     break;
                 case 99:
                     JOptionPane.showMessageDialog(null, "Programa Encerrado");
